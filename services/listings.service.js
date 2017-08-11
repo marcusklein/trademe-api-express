@@ -1,11 +1,9 @@
 var request = require('request');
 
-'use strict';
-
 const trademeKey = {
   consumerKey: "E434B9CF4549C3F016FC9FA13E024A04",
   consumerSecret: "82822352A8CF174E123A12F00466116C"
-}
+};
 
 const trademeApiUrl = 'https://api.tmsandbox.co.nz/v1/Search/General.json';
 
@@ -17,9 +15,8 @@ var options = {
     }
   };
 
-
-var getThings = function(callback) {
-    console.log("requesting things");
+var getListings = function(callback) {
+    console.log("requesting listings");
     request(options, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
@@ -31,9 +28,8 @@ var getThings = function(callback) {
             return null;
         }
     });
-}
-
+};
 
 module.exports = {
-    getThings: getThings
-}
+    getListings: getListings
+};
